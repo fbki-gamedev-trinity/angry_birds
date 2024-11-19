@@ -1,0 +1,35 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="angry_birds"
+config/features=PackedStringArray("4.3", "Forward Plus")
+config/icon="res://icon.svg"
+
+[editor]
+
+movie_writer/movie_file="D:/isu_game_dev/angry_birds/demo.avi"
+movie_writer/layer_4="свиньи"
+movie_writer/layer_3="блоки"
+
+[layer_names]
+
+2d_physics/layer_1="птицы"
+2d_physics/layer_2="земля"
+2d_physics/layer_3="блоки"
+2d_physics/layer_4="свиньи"
+
+[physics]
+
+common/layer_4="свиньи"
+common/layer_3="блоки"
+common/layer_2="земля"
+common/layer_1="птицы"

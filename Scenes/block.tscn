@@ -1,0 +1,79 @@
+[gd_scene load_steps=9 format=3 uid="uid://bbnkfoxhlnvvm"]
+
+[ext_resource type="Script" path="res://Scenes/block.gd" id="1_hqf38"]
+[ext_resource type="Texture2D" uid="uid://d3m8ywipu1fty" path="res://Src/blocks.jpg" id="2_b2aph"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fhlqi"]
+atlas = ExtResource("2_b2aph")
+region = Rect2(0, 84, 85, 83)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wflfr"]
+atlas = ExtResource("2_b2aph")
+region = Rect2(0, 0, 85, 83)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kgmed"]
+atlas = ExtResource("2_b2aph")
+region = Rect2(0, 168, 85, 83)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_somue"]
+atlas = ExtResource("2_b2aph")
+region = Rect2(0, 252, 85, 84)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8xpnq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fhlqi")
+}],
+"loop": true,
+"name": &"damaged",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wflfr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kgmed")
+}],
+"loop": true,
+"name": &"heavily_damaged",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_somue")
+}],
+"loop": true,
+"name": &"very_heavily_damaged",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c2o54"]
+size = Vector2(84, 83)
+
+[node name="RigidBody2D" type="RigidBody2D"]
+collision_layer = 4
+collision_mask = 15
+script = ExtResource("1_hqf38")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_8xpnq")
+autoplay = "default"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_c2o54")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_c2o54")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

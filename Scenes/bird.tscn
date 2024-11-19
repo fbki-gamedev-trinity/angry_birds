@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://bj3lhx2diua15"]
+
+[ext_resource type="Texture2D" uid="uid://b70ann18ion0l" path="res://Src/birds.png" id="1_yf42f"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_su4ti"]
+radius = 18.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_edft1"]
+atlas = ExtResource("1_yf42f")
+region = Rect2(10, 16, 45, 44)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bjvv0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_edft1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="RigidBody2D" type="RigidBody2D"]
+collision_mask = 14
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, 3)
+shape = SubResource("CircleShape2D_su4ti")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_bjvv0")
+autoplay = "default"
