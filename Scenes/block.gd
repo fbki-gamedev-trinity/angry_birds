@@ -42,5 +42,4 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if is_instance_valid(body):
 		if body is RigidBody2D:
 			var collision_force = body.linear_velocity.length() * body.mass
-			print_debug('blocks', collision_force)
 			apply_damage(collision_force)

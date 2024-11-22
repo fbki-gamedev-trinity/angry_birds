@@ -12,7 +12,7 @@ size = Vector2(14.99, 20.4)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_layer = 2
-collision_mask = 5
+collision_mask = 13
 
 [node name="TextureRect" type="TextureRect" parent="StaticBody2D"]
 offset_right = 3000.0
@@ -29,11 +29,11 @@ shape = SubResource("RectangleShape2D_yxf8e")
 position = Vector2(1449, -232)
 
 [node name="RigidBody2D4" parent="." instance=ExtResource("3_jm48a")]
-position = Vector2(1481, -127)
+position = Vector2(978, -443)
 max_health = 50
 
 [node name="RigidBody2D3" parent="." instance=ExtResource("2_3k2pl")]
-position = Vector2(1433, -46)
+position = Vector2(1143, -56)
 
 [node name="RigidBody2D" parent="." instance=ExtResource("2_3k2pl")]
 position = Vector2(1520, -45)
