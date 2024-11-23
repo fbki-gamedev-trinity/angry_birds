@@ -1,9 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://cb4qj4a1o0ph4"]
+[gd_scene load_steps=9 format=3 uid="uid://cb4qj4a1o0ph4"]
 
 [ext_resource type="Texture2D" uid="uid://cw4fdxbmya5g1" path="res://Src/ground.jpg" id="1_j4qq8"]
 [ext_resource type="PackedScene" uid="uid://bbnkfoxhlnvvm" path="res://Scenes/block.tscn" id="2_3k2pl"]
 [ext_resource type="PackedScene" uid="uid://cgofr2yml3lpt" path="res://Scenes/pig.tscn" id="3_jm48a"]
 [ext_resource type="PackedScene" uid="uid://bj3lhx2diua15" path="res://Scenes/bird.tscn" id="3_sg08s"]
+[ext_resource type="Script" path="res://Scenes/birb_factory.gd" id="5_k4vgw"]
+[ext_resource type="PackedScene" path="res://Scenes/sling.tscn" id="6_sbtp5"]
+[ext_resource type="Script" path="res://Scenes/sling.gd" id="7_1ys5i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yxf8e"]
 size = Vector2(14.99, 20.4)
@@ -29,17 +32,24 @@ shape = SubResource("RectangleShape2D_yxf8e")
 position = Vector2(1449, -232)
 
 [node name="RigidBody2D4" parent="." instance=ExtResource("3_jm48a")]
-position = Vector2(978, -443)
+position = Vector2(1517, -278)
 max_health = 50
 
 [node name="RigidBody2D3" parent="." instance=ExtResource("2_3k2pl")]
-position = Vector2(1143, -56)
+position = Vector2(1521, -201)
 
 [node name="RigidBody2D" parent="." instance=ExtResource("2_3k2pl")]
-position = Vector2(1520, -45)
+position = Vector2(1500, -118)
 
 [node name="RigidBody2D5" parent="." instance=ExtResource("2_3k2pl")]
-position = Vector2(1844, -67)
+position = Vector2(1552, -38)
 
 [node name="RigidBody2D2" parent="." instance=ExtResource("3_sg08s")]
-position = Vector2(1490, -921)
+position = Vector2(637, -22)
+
+[node name="BirbFactory" type="Node2D" parent="."]
+script = ExtResource("5_k4vgw")
+
+[node name="Sling" parent="." instance=ExtResource("6_sbtp5")]
+position = Vector2(1012, -4)
+script = ExtResource("7_1ys5i")

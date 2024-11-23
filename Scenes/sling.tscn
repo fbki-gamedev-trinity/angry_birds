@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://dp2mwx6fjoied"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hl575"]
+size = Vector2(20, 179)
+
+[node name="StaticBody2D2" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -79.5)
+shape = SubResource("RectangleShape2D_hl575")
+
+[node name="Polygon2D" type="Polygon2D" parent="CollisionShape2D"]
+polygon = PackedVector2Array(-10, -89.5, 10, -89.5, 10, 89.5, -10, 89.5)
+
+[node name="Draggable" type="Polygon2D" parent="."]
+position = Vector2(-6, -213)
+polygon = PackedVector2Array(4, -5, 4, 5, 10, 8, 8, 11, 1, 7, 1, -6, 7, -11, 9, -8)
+
+[node name="RopeA" type="Line2D" parent="."]
+position = Vector2(1, 0)
+points = PackedVector2Array(-3, -205, -7, -198)
+default_color = Color(0.792177, 0.408893, 7.70092e-07, 1)
