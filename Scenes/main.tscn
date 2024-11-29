@@ -1,9 +1,13 @@
-[gd_scene load_steps=7 format=4 uid="uid://cb4qj4a1o0ph4"]
+[gd_scene load_steps=9 format=4 uid="uid://cb4qj4a1o0ph4"]
+
 
 [ext_resource type="Texture2D" uid="uid://cw4fdxbmya5g1" path="res://Src/ground.jpg" id="1_j4qq8"]
 [ext_resource type="PackedScene" uid="uid://bbnkfoxhlnvvm" path="res://Scenes/block.tscn" id="2_3k2pl"]
 [ext_resource type="PackedScene" uid="uid://cgofr2yml3lpt" path="res://Scenes/pig.tscn" id="3_jm48a"]
 [ext_resource type="PackedScene" uid="uid://bj3lhx2diua15" path="res://Scenes/bird.tscn" id="3_sg08s"]
+[ext_resource type="Script" path="res://Scenes/birb_factory.gd" id="5_k4vgw"]
+[ext_resource type="PackedScene" path="res://Scenes/sling.tscn" id="6_sbtp5"]
+[ext_resource type="Script" path="res://Scenes/sling.gd" id="7_1ys5i"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c26o5"]
 texture = ExtResource("1_j4qq8")
@@ -56,3 +60,10 @@ max_health = 20
 
 [node name="Block5" parent="." instance=ExtResource("2_3k2pl")]
 position = Vector2(1261, -623)
+
+[node name="BirbFactory" type="Node2D" parent="."]
+script = ExtResource("5_k4vgw")
+
+[node name="Sling" parent="." instance=ExtResource("6_sbtp5")]
+position = Vector2(1012, -4)
+script = ExtResource("7_1ys5i")
