@@ -1,7 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://cgofr2yml3lpt"]
+[gd_scene load_steps=9 format=3 uid="uid://cgofr2yml3lpt"]
 
 [ext_resource type="Script" path="res://Scenes/pig.gd" id="1_ch6ti"]
 [ext_resource type="Texture2D" uid="uid://rmquuyjfovf3" path="res://Src/pigs.webp" id="2_vxe1d"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p5xqp"]
+radius = 28.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_388ps"]
+radius = 28.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5ls56"]
 atlas = ExtResource("2_vxe1d")
@@ -42,29 +48,27 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_388ps"]
-radius = 28.0
-
-[node name="RigidBody2D" type="RigidBody2D"]
+[node name="Pig" type="RigidBody2D"]
 collision_layer = 8
-collision_mask = 7
+collision_mask = 15
 script = ExtResource("1_ch6ti")
 max_health = 20
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_iha83")
-autoplay = "default"
-
 [node name="Area2D" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 5
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, 5)
-scale = Vector2(1.1995, 1)
-shape = SubResource("CircleShape2D_388ps")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-1, 3)
+shape = SubResource("CircleShape2D_p5xqp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 5)
 scale = Vector2(1.1995, 1)
 shape = SubResource("CircleShape2D_388ps")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_iha83")
+autoplay = "default"
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
