@@ -22,51 +22,56 @@ sources/0 = SubResource("TileSetAtlasSource_c26o5")
 [node name="Node2D" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(1449, -232)
+position = Vector2(-31, -173)
+limit_left = -200
+limit_top = -500
+limit_right = 1200
+limit_bottom = 0
+editor_draw_limits = true
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAACAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAFAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAHAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAJAAAAAAAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAACAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAFAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAHAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAJAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_m52cs")
 
 [node name="Block" parent="." instance=ExtResource("2_3k2pl")]
-position = Vector2(1632, -128)
+position = Vector2(555, -124)
 
 [node name="Pig" parent="." instance=ExtResource("3_jm48a")]
-position = Vector2(1541, -38)
+position = Vector2(464, -34)
 
 [node name="Pig2" parent="." instance=ExtResource("3_jm48a")]
-position = Vector2(1566, -299)
+position = Vector2(489, -295)
 
 [node name="Block2" parent="." instance=ExtResource("2_3k2pl")]
-position = Vector2(1574, -214)
+position = Vector2(497, -210)
 
 [node name="Block3" parent="." instance=ExtResource("2_3k2pl")]
-position = Vector2(1452, -43)
+position = Vector2(375, -39)
 
 [node name="Block4" parent="." instance=ExtResource("2_3k2pl")]
-position = Vector2(1633, -44)
+position = Vector2(556, -40)
 
 [node name="Block6" parent="." instance=ExtResource("2_3k2pl")]
-position = Vector2(1484, -210)
+position = Vector2(407, -206)
 
 [node name="Block5" parent="." instance=ExtResource("2_3k2pl")]
-position = Vector2(1454, -127)
+position = Vector2(377, -123)
 
 [node name="BirbFactory" type="Node2D" parent="."]
 script = ExtResource("5_k4vgw")
 
 [node name="Sling" parent="." instance=ExtResource("6_sbtp5")]
-position = Vector2(1012, -4)
+position = Vector2(-65, 0)
 script = ExtResource("7_1ys5i")
 
 [node name="Block7" parent="." instance=ExtResource("2_3k2pl")]
-position = Vector2(1663, -214)
+position = Vector2(586, -210)
 
 [node name="Block8" parent="." instance=ExtResource("2_3k2pl")]
-position = Vector2(1657, -302)
+position = Vector2(580, -298)
 
 [node name="Block9" parent="." instance=ExtResource("2_3k2pl")]
-position = Vector2(1398, -212)
+position = Vector2(321, -208)
 
 [node name="Block10" parent="." instance=ExtResource("2_3k2pl")]
-position = Vector2(1471, -301)
+position = Vector2(394, -297)
