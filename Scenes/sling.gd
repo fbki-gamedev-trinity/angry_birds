@@ -20,20 +20,18 @@ func _unhandled_input(event: InputEvent) -> void:
 			
 			$"../BirbFactory".fire_bird(draggable.global_position, launch_vector*10)
 
-# 
+# Предсказать траекторию полёта
 func plot_trajectory(vec):
 	var gravity = Vector2(0, 9.8)
 	var lst = []
 	
-	for i in range(20):
+	for i in range(30):
 		lst.append(draggable_base + vec - vec*i + gravity*i*i/2)
 		
 	$Trajectory.points = lst
 
-
 # Обработка непрерывного ввода
 # TODO: Привязать верёвки к точкам корзины?
-# TODO: Проверять что мышь вблизи корзины
 func _process(delta: float) -> void:
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		var local_mouse = get_local_mouse_position()
