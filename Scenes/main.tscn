@@ -32,10 +32,10 @@ tile_set = SubResource("TileSet_m52cs")
 position = Vector2(1632, -128)
 
 [node name="Pig" parent="." instance=ExtResource("3_jm48a")]
-position = Vector2(1539, -35)
+position = Vector2(1541, -38)
 
 [node name="Pig2" parent="." instance=ExtResource("3_jm48a")]
-position = Vector2(1309, -656)
+position = Vector2(1566, -299)
 
 [node name="Block2" parent="." instance=ExtResource("2_3k2pl")]
 position = Vector2(1574, -214)
@@ -58,3 +58,15 @@ script = ExtResource("5_k4vgw")
 [node name="Sling" parent="." instance=ExtResource("6_sbtp5")]
 position = Vector2(1012, -4)
 script = ExtResource("7_1ys5i")
+
+[node name="Block7" parent="." instance=ExtResource("2_3k2pl")]
+position = Vector2(1663, -214)
+
+[node name="Block8" parent="." instance=ExtResource("2_3k2pl")]
+position = Vector2(1657, -302)
+
+[node name="Block9" parent="." instance=ExtResource("2_3k2pl")]
+position = Vector2(1398, -212)
+
+[node name="Block10" parent="." instance=ExtResource("2_3k2pl")]
+position = Vector2(1471, -301)

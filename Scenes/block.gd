@@ -1,11 +1,9 @@
 extends RigidBody2D
 
-@export var max_health: int = 20
+@export var max_health: int = 5
+var last_velocity = Vector2(0, 0)
 var health: float
-var last_position = Vector2()
-var fall_height = 0.0
-var is_falling = false
-var min_impact = 10.0
+var min_impact = 50.0
 
 func _ready() -> void:
 	health = max_health
@@ -39,6 +37,11 @@ func change_animation(animation_name: String):
 
 func destroy_block():
 	queue_free()
+	
+# Хранить предыдущую скорость
+# Пригодится когда возникнет столкновение
+func _process(delta: float) -> void:
+	last_velocity = self.linear_velocity
 
 func _on_body_entered(body: Node) -> void:
 	var impact:Vector2
@@ -50,9 +53,9 @@ func _on_body_entered(body: Node) -> void:
 	# используем только свою скорость
 	#
 	if body is RigidBody2D: 
-		impact = self.linear_velocity*self.mass - body.linear_velocity*body.mass
+		impact = self.last_velocity*self.mass - body.linear_velocity*body.mass
 	else:
-		impact = self.linear_velocity*self.mass
+		impact = self.last_velocity*self.mass
 	
 	# Логарифмическая боль
 	# Всё что меньше min_impact будет проигнорировано
