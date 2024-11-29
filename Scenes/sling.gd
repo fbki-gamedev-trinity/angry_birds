@@ -3,6 +3,7 @@ extends StaticBody2D
 @onready var draggable:Polygon2D = $Draggable
 @onready var draggable_base = draggable.position
 @onready var rope_a:Line2D = $RopeA
+@onready var camera = $"../Camera2D"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -25,6 +26,9 @@ func _process(delta: float) -> void:
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		var local_mouse = get_local_mouse_position()
 		var vec = local_mouse - draggable_base
+		
+		camera.scroll_locked = true
+		camera.position = self.position
 		
 		vec = vec.limit_length(100)
 		draggable.position = draggable_base + vec
