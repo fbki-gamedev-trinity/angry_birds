@@ -1,7 +1,7 @@
 extends RigidBody2D
 
 @export var max_health: int = 200
-var health: int
+var health: float
 var last_position = Vector2()
 var fall_height = 0.0
 var is_falling = false
@@ -39,24 +39,18 @@ func change_animation(animation_name: String):
 func destroy_block():
 	queue_free()
 
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body == self:
-		return
-	if is_instance_valid(body):
-		if body is RigidBody2D:
-			var collision_force = body.linear_velocity.length() * body.mass
-			apply_damage(collision_force)
-
-func _integrate_forces(state) -> void:
-	var current_velocity = state.get_linear_velocity()
-	if current_velocity.length() > 0.01:
-		if not is_falling:
-			last_position = position
-			is_falling = true
+func _on_body_entered(body: Node) -> void:
+	var impact:Vector2
+	
+	# Столкнулись с движущимся в противоположную сторону объектом
+	# должно нанести очень много урона
+	#
+	# Столкнулись со статичным объектом (землёй?)
+	# используем только свою скорость
+	#
+	if body is RigidBody2D: 
+		impact = self.linear_velocity*self.mass - body.linear_velocity*body.mass
 	else:
-		if is_falling:
-			fall_height = abs(last_position.y - position.y)
-			if fall_height > 10:
-				var fall_damage = fall_height * 0.1
-				apply_damage(fall_damage)
-			is_falling = false
+		impact = self.linear_velocity*self.mass
+		
+	apply_damage(impact.length())

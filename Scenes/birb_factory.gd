@@ -6,6 +6,7 @@ func fire_bird(origin, vector):
 		var birb:RigidBody2D = Birb.instantiate()
 		birb.global_position = origin
 		birb.linear_velocity = vector
+		print("Fire with", vector.length(), "velocity")
 		add_child(birb)
 
 # Called when the node enters the scene tree for the first time.
