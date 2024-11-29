@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=4 uid="uid://cb4qj4a1o0ph4"]
+[gd_scene load_steps=10 format=4 uid="uid://cb4qj4a1o0ph4"]
 
 [ext_resource type="Texture2D" uid="uid://cw4fdxbmya5g1" path="res://Src/ground.jpg" id="1_j4qq8"]
+[ext_resource type="Script" path="res://Scenes/camera_2d.gd" id="1_v25ph"]
 [ext_resource type="PackedScene" uid="uid://bbnkfoxhlnvvm" path="res://Scenes/block.tscn" id="2_3k2pl"]
 [ext_resource type="PackedScene" uid="uid://cgofr2yml3lpt" path="res://Scenes/pig.tscn" id="3_jm48a"]
 [ext_resource type="Script" path="res://Scenes/birb_factory.gd" id="5_k4vgw"]
@@ -22,12 +23,14 @@ sources/0 = SubResource("TileSetAtlasSource_c26o5")
 [node name="Node2D" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(7, -165)
+position = Vector2(374, -149)
 limit_left = -200
 limit_top = -500
 limit_right = 1400
 limit_bottom = 0
+position_smoothing_enabled = true
 editor_draw_limits = true
+script = ExtResource("1_v25ph")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAACAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAFAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAHAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAJAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAA=")
