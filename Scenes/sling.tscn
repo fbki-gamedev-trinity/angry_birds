@@ -20,3 +20,7 @@ polygon = PackedVector2Array(4, -5, 4, 5, 10, 8, 8, 11, 1, 7, 1, -6, 7, -11, 9, 
 position = Vector2(1, 0)
 points = PackedVector2Array(-3, -205, -7, -198)
 default_color = Color(0.792177, 0.408893, 7.70092e-07, 1)
+
+[node name="Trajectory" type="Line2D" parent="."]
+points = PackedVector2Array(1, -207, 44, -235, 92, -235, 152, -208, 199, -157, 219, -111, 226, -53, 227, -15)
+default_color = Color(0, 0, 0, 0.235294)

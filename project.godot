@@ -15,6 +15,10 @@ run/main_scene="res://Scenes/main.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
+[display]
+
+window/stretch/mode="canvas_items"
+
 [editor]
 
 movie_writer/movie_file="D:/isu_game_dev/angry_birds/demo.avi"

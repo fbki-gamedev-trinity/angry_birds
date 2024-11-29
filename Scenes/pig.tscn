@@ -51,8 +51,9 @@ animations = [{
 [node name="Pig" type="RigidBody2D"]
 collision_layer = 8
 collision_mask = 15
+contact_monitor = true
+max_contacts_reported = 2
 script = ExtResource("1_ch6ti")
-max_health = 20
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 8
@@ -71,4 +72,4 @@ shape = SubResource("CircleShape2D_388ps")
 sprite_frames = SubResource("SpriteFrames_iha83")
 autoplay = "default"
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
