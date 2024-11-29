@@ -14,9 +14,9 @@ func _unhandled_input(event: InputEvent) -> void:
 
 	if event is InputEventMouseButton and event.is_released():
 		if event.button_index == MOUSE_BUTTON_LEFT:
-			var launch_vector = draggable_base - get_local_mouse_position()
+			var launch_vector = draggable_base - draggable.position
 			
-			$"../BirbFactory".fire_bird(draggable.global_position, launch_vector*5)
+			$"../BirbFactory".fire_bird(draggable.global_position, launch_vector*10)
 
 # Обработка непрерывного ввода
 # TODO: Привязать верёвки к точкам корзины?

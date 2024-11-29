@@ -30,18 +30,15 @@ tile_set = SubResource("TileSet_m52cs")
 
 [node name="Block" parent="." instance=ExtResource("2_3k2pl")]
 position = Vector2(1632, -128)
-max_health = 20
 
 [node name="Pig" parent="." instance=ExtResource("3_jm48a")]
-position = Vector2(1540, -39)
-max_health = 50
+position = Vector2(1539, -35)
 
 [node name="Pig2" parent="." instance=ExtResource("3_jm48a")]
-position = Vector2(1492, -290)
-max_health = 50
+position = Vector2(1309, -656)
 
 [node name="Block2" parent="." instance=ExtResource("2_3k2pl")]
-position = Vector2(1865, -504)
+position = Vector2(1574, -214)
 
 [node name="Block3" parent="." instance=ExtResource("2_3k2pl")]
 position = Vector2(1452, -43)
@@ -51,7 +48,6 @@ position = Vector2(1633, -44)
 
 [node name="Block6" parent="." instance=ExtResource("2_3k2pl")]
 position = Vector2(1484, -210)
-max_health = 20
 
 [node name="Block5" parent="." instance=ExtResource("2_3k2pl")]
 position = Vector2(1454, -127)

@@ -1,10 +1,11 @@
 extends RigidBody2D
 
-@export var max_health: int = 200
+@export var max_health: int = 20
 var health: float
 var last_position = Vector2()
 var fall_height = 0.0
 var is_falling = false
+var min_impact = 10.0
 
 func _ready() -> void:
 	health = max_health
@@ -52,5 +53,10 @@ func _on_body_entered(body: Node) -> void:
 		impact = self.linear_velocity*self.mass - body.linear_velocity*body.mass
 	else:
 		impact = self.linear_velocity*self.mass
-		
-	apply_damage(impact.length())
+	
+	# Логарифмическая боль
+	# Всё что меньше min_impact будет проигнорировано
+	var pain = log(impact.length() / min_impact)
+	
+	if pain > 0:
+		apply_damage(pain)
