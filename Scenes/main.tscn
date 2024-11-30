@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://cb4qj4a1o0ph4"]
+[gd_scene load_steps=11 format=4 uid="uid://cb4qj4a1o0ph4"]
 
 [ext_resource type="Texture2D" uid="uid://cw4fdxbmya5g1" path="res://Src/ground.jpg" id="1_j4qq8"]
 [ext_resource type="Script" path="res://Scenes/camera_2d.gd" id="1_v25ph"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://Scenes/birb_factory.gd" id="5_k4vgw"]
 [ext_resource type="PackedScene" uid="uid://dp2mwx6fjoied" path="res://Scenes/sling.tscn" id="6_sbtp5"]
 [ext_resource type="Script" path="res://Scenes/sling.gd" id="7_1ys5i"]
+[ext_resource type="PackedScene" uid="uid://b0cdinvur3hgb" path="res://Scenes/dust.tscn" id="8_t0rj1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c26o5"]
 texture = ExtResource("1_j4qq8")
@@ -78,3 +79,5 @@ position = Vector2(321, -208)
 
 [node name="Block10" parent="." instance=ExtResource("2_3k2pl")]
 position = Vector2(394, -297)
+
+[node name="CPUParticles2D" parent="." instance=ExtResource("8_t0rj1")]

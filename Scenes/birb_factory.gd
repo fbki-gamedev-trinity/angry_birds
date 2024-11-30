@@ -6,6 +6,7 @@ extends Node2D
 @onready var camera:Camera2D = $"../Camera2D"
 var min_birb_velocity = 20.0
 var birb_sat_unmoving = 0.0
+@onready var dust_particles_scene = preload("res://Scenes/dust.tscn")
 
 func fire_bird(origin, vector):
 	
@@ -25,6 +26,10 @@ func fire_bird(origin, vector):
 
 func remove_bird():
 	camera.position = $"../Sling".position
+	var dust_particles_instance = dust_particles_scene.instantiate()
+	dust_particles_instance.global_transform.origin = global_transform.origin
+	dust_particles_instance.emitting = true
+	get_tree().current_scene.add_child(dust_particles_instance)
 	active_birb.queue_free()
 	active_birb = null
 

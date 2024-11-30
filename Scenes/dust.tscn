@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://b0cdinvur3hgb"]
+
+[ext_resource type="Texture2D" uid="uid://drd28k7embmpv" path="res://Src/NicePng_angry-birds-png_539956.png" id="1_impxc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lcq3f"]
+atlas = ExtResource("1_impxc")
+region = Rect2(434.907, 963.133, 49.6737, 45.7224)
+
+[sub_resource type="Gradient" id="Gradient_nh1tl"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[node name="CPUParticles2D" type="CPUParticles2D"]
+emitting = false
+lifetime = 1.5
+one_shot = true
+explosiveness = 1.0
+texture = SubResource("AtlasTexture_lcq3f")
+emission_shape = 1
+emission_sphere_radius = 66.93
+spread = 180.0
+gravity = Vector2(100, -100)
+initial_velocity_min = 50.0
+initial_velocity_max = 100.0
+scale_amount_min = 0.5
+color_ramp = SubResource("Gradient_nh1tl")

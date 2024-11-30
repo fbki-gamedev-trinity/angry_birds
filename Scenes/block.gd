@@ -4,6 +4,7 @@ extends RigidBody2D
 var last_velocity = Vector2(0, 0)
 var health: float
 var min_impact = 50.0
+@onready var dust_particles_scene = preload("res://Scenes/dust.tscn")
 
 func _ready() -> void:
 	health = max_health
@@ -36,6 +37,10 @@ func change_animation(animation_name: String):
 	$AnimatedSprite2D.play(animation_name)
 
 func destroy_block():
+	var dust_particles_instance = dust_particles_scene.instantiate()
+	dust_particles_instance.global_transform.origin = global_transform.origin
+	dust_particles_instance.emitting = true
+	get_tree().current_scene.add_child(dust_particles_instance)
 	queue_free()
 	
 # Хранить предыдущую скорость
