@@ -28,3 +28,6 @@ func _process(delta: float) -> void:
 		self.position.x = self.limit_right - viewport_width/2
 
 	last_mouse = now_mouse
+	
+	# Тащить за камерой меню паузы 😧
+	$"../PauseMenu".position = get_screen_center_position() - get_viewport_rect().size/2
