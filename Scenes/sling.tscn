@@ -1,4 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://dp2mwx6fjoied"]
+[gd_scene load_steps=3 format=3 uid="uid://dp2mwx6fjoied"]
+
+[ext_resource type="PackedScene" uid="uid://bj3lhx2diua15" path="res://Scenes/bird.tscn" id="1_a7imr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hl575"]
 size = Vector2(20, 179)
@@ -10,17 +12,19 @@ position = Vector2(0, -79.5)
 shape = SubResource("RectangleShape2D_hl575")
 
 [node name="Polygon2D" type="Polygon2D" parent="CollisionShape2D"]
-polygon = PackedVector2Array(-10, -89.5, 10, -89.5, 10, 89.5, -10, 89.5)
+polygon = PackedVector2Array(-10, -89.5, -23, -124.5, 1, -90.5, 19, -134.5, 10, -89.5, 10, 89.5, -10, 89.5)
 
-[node name="Draggable" type="Polygon2D" parent="."]
-position = Vector2(-6, -213)
-polygon = PackedVector2Array(4, -5, 4, 5, 10, 8, 8, 11, 1, 7, 1, -6, 7, -11, 9, -8)
-
-[node name="RopeA" type="Line2D" parent="."]
-position = Vector2(1, 0)
-points = PackedVector2Array(-3, -205, -7, -198)
+[node name="Rope" type="Line2D" parent="."]
+position = Vector2(1, -7)
+points = PackedVector2Array(-23, -198, -2, -198, 16, -204)
 default_color = Color(0.792177, 0.408893, 7.70092e-07, 1)
+begin_cap_mode = 2
+end_cap_mode = 2
 
 [node name="Trajectory" type="Line2D" parent="."]
 points = PackedVector2Array(1, -207, 44, -235, 92, -235, 152, -208, 199, -157, 219, -111, 226, -53, 227, -15)
 default_color = Color(0, 0, 0, 0.235294)
+
+[node name="Bird" parent="." instance=ExtResource("1_a7imr")]
+position = Vector2(-5, -223)
+freeze = true
