@@ -6,6 +6,7 @@ extends StaticBody2D
 @onready var camera = $"../Camera2D"
 @onready var birb_factory = $"../BirbFactory"
 @onready var bird:Node2D = $Bird
+@onready var shots = 3
 
 var taking_input:bool = false
 
@@ -18,7 +19,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_echo():
 		return
 
-	if event is InputEventMouseButton and event.is_released() and taking_input:
+	if event is InputEventMouseButton and event.is_released() and taking_input and shots > 0:
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			var launch_vector = draggable_base - rope.points[1]
 			
@@ -72,5 +73,9 @@ func _process(delta: float) -> void:
 		if taking_input:
 			taking_input = false
 			camera.scroll_locked = false
-			
-	bird.visible = birb_factory.active_birb == null
+	
+	# Видимость птички в рогатке и ждущих птичек
+	bird.visible = birb_factory.active_birb == null and shots > 0
+
+	$Bird_spare2.visible = shots > 2
+	$Bird_spare1.visible = shots > 1

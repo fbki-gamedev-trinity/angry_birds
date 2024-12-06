@@ -26,6 +26,7 @@ func fire_bird(origin, vector):
 
 func remove_bird():
 	camera.position = $"../Sling".position
+	$"../Sling".shots -= 1
 	var dust_particles_instance = dust_particles_scene.instantiate()
 	dust_particles_instance.global_transform.origin = active_birb.global_transform.origin
 	dust_particles_instance.emitting = true
