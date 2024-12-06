@@ -27,7 +27,7 @@ func fire_bird(origin, vector):
 func remove_bird():
 	camera.position = $"../Sling".position
 	var dust_particles_instance = dust_particles_scene.instantiate()
-	dust_particles_instance.global_transform.origin = global_transform.origin
+	dust_particles_instance.global_transform.origin = active_birb.global_transform.origin
 	dust_particles_instance.emitting = true
 	get_tree().current_scene.add_child(dust_particles_instance)
 	active_birb.queue_free()
