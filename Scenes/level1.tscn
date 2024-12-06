@@ -1,5 +1,6 @@
-[gd_scene load_steps=15 format=4 uid="uid://cb4qj4a1o0ph4"]
+[gd_scene load_steps=17 format=4 uid="uid://cb4qj4a1o0ph4"]
 
+[ext_resource type="Script" path="res://Scenes/level_1.gd" id="1_73ben"]
 [ext_resource type="Texture2D" uid="uid://cw4fdxbmya5g1" path="res://Src/ground.jpg" id="1_j4qq8"]
 [ext_resource type="Script" path="res://Scenes/camera_2d.gd" id="1_v25ph"]
 [ext_resource type="PackedScene" uid="uid://bbnkfoxhlnvvm" path="res://Scenes/block.tscn" id="2_3k2pl"]
@@ -12,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://8xb0xwkufa4m" path="res://Src/parallax backgound pack/_07_huge_clouds.png" id="10_bt72q"]
 [ext_resource type="Texture2D" uid="uid://bfpdf8i3vc4ug" path="res://Src/parallax backgound pack/_05_hill1.png" id="11_n7h20"]
 [ext_resource type="PackedScene" uid="uid://vgor2kenp54n" path="res://Scenes/pause_menu.tscn" id="12_3im1o"]
+[ext_resource type="PackedScene" uid="uid://cyem7f8tr43kc" path="res://Scenes/game_over.tscn" id="14_c43t5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c26o5"]
 texture = ExtResource("1_j4qq8")
@@ -26,6 +28,7 @@ physics_layer_0/collision_mask = 13
 sources/0 = SubResource("TileSetAtlasSource_c26o5")
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_73ben")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(374, -149)
@@ -123,6 +126,11 @@ texture = ExtResource("11_n7h20")
 metadata/_edit_use_anchors_ = true
 
 [node name="PauseMenu" parent="." instance=ExtResource("12_3im1o")]
+visible = false
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="GameOver" parent="." instance=ExtResource("14_c43t5")]
 visible = false
 offset_right = 1152.0
 offset_bottom = 648.0

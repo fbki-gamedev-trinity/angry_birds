@@ -31,3 +31,5 @@ func _process(delta: float) -> void:
 	
 	# Тащить за камерой меню паузы 😧
 	$"../PauseMenu".position = get_screen_center_position() - get_viewport_rect().size/2
+	$"../GameOver".position = get_screen_center_position() - get_viewport_rect().size/2
+	

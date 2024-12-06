@@ -28,3 +28,9 @@ default_color = Color(0, 0, 0, 0.235294)
 [node name="Bird" parent="." instance=ExtResource("1_a7imr")]
 position = Vector2(-5, -223)
 freeze = true
+
+[node name="Bird_spare1" parent="." instance=ExtResource("1_a7imr")]
+position = Vector2(-60, -9)
+
+[node name="Bird_spare2" parent="." instance=ExtResource("1_a7imr")]
+position = Vector2(-113, -8)
