@@ -1,7 +1,7 @@
 extends Control
 
 func _ready():
-	print("RDY")
+	pass
 
 # Для этой сцены включен всегда активный режим
 # так что можно выставлять .paused = true

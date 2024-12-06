@@ -19,7 +19,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_echo():
 		return
 
-	if event is InputEventMouseButton and event.is_released() and taking_input and shots > 0:
+	if event is InputEventMouseButton and event.is_released() and taking_input:
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			var launch_vector = draggable_base - rope.points[1]
 			
@@ -44,7 +44,7 @@ func _process(delta: float) -> void:
 		var local_mouse = get_local_mouse_position()
 		var vec = local_mouse - draggable_base
 		
-		if vec.length() <= 100:
+		if vec.length() <= 100 and shots > 0:
 			taking_input = true
 		
 		if taking_input:

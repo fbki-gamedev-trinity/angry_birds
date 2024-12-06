@@ -9,7 +9,7 @@ var min_impact = 100.0
 
 func _ready() -> void:
 	health = max_health
-	add_to_group("pigs")
+	$"..".track_enemy(self)
 	$AnimatedSprite2D.play("default")
 
 func apply_damage(force: float) -> void:
@@ -38,6 +38,7 @@ func destroy_block():
 	dust_particles_instance.global_transform.origin = global_transform.origin
 	dust_particles_instance.emitting = true
 	get_tree().current_scene.add_child(dust_particles_instance)
+	$"..".track_enemy_defeated(self)
 	queue_free()
 
 # Хранить предыдущую скорость

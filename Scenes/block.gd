@@ -15,7 +15,6 @@ func apply_damage(force: float) -> void:
 	var damage = force
 	health -= damage
 
-	print_debug("Damage applied: ", damage, " New health: ", health)
 	if health <= 0:
 		destroy_block()
 	else:
