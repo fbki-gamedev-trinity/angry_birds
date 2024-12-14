@@ -1,7 +1,5 @@
 extends StaticBody2D
 
-
-@onready var rope:Line2D = $Rope
 @onready var draggable_base = $Draggable.position
 @onready var camera = $"../Camera2D"
 @onready var birb_factory = $"../BirbFactory"
@@ -21,13 +19,13 @@ func _unhandled_input(event: InputEvent) -> void:
 
 	if event is InputEventMouseButton and event.is_released() and taking_input:
 		if event.button_index == MOUSE_BUTTON_LEFT:
-			var launch_vector = draggable_base - rope.points[1]
+			var launch_vector = draggable_base - $Draggable.position
 			
 			birb_factory.fire_bird(bird.global_position, launch_vector*10)
 
 # Предсказать траекторию полёта
 func plot_trajectory(vec):
-	var gravity = Vector2(0, 9.8)
+	var gravity = Vector2(0, 11)
 	var lst = []
 	
 	for i in range(30):
@@ -81,12 +79,10 @@ func _process(delta: float) -> void:
 			bird.rotation = atan2(vec.y, vec.x) - PI
 			
 			plot_trajectory(vec)
-			
-			rope.points[1] = draggable_base + vec
+
 	else:
 		bird.position = draggable_base + Vector2(0, -20)
 		bird.rotation = 0
-		rope.points[1] = draggable_base
 		
 		$Trajectory.points = []
 		
