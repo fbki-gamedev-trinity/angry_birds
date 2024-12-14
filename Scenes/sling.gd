@@ -2,7 +2,7 @@ extends StaticBody2D
 
 
 @onready var rope:Line2D = $Rope
-@onready var draggable_base = rope.points[1]
+@onready var draggable_base = $Draggable.position
 @onready var camera = $"../Camera2D"
 @onready var birb_factory = $"../BirbFactory"
 @onready var bird:Node2D = $Bird
@@ -36,6 +36,22 @@ func plot_trajectory(vec):
 	$Trajectory.points = lst
 
 # Здесь:
+# - Позиционирование веревок
+# - Порядок отрисовки веревок
+func update_rope(vec):
+	$RopeBack.points[0] = draggable_base + vec
+	$RopeFront.points[0] = draggable_base + vec
+	
+	var x:Line2D = $RopeFront
+	
+	if vec.y <= 0:
+		$RopeFront.z_index = 0
+		$RopeBack.z_index = -1
+	else:
+		$RopeFront.z_index = -1
+		$RopeBack.z_index = 0
+
+# Здесь:
 # - Натягивание рогатки
 # - Позиционирование птички
 # - Контроль видимости птички
@@ -57,6 +73,10 @@ func _process(delta: float) -> void:
 			# Добавочка чтобы сдвинуть птичку чуть вверх
 			var offset = vec.rotated(PI/2).normalized()*20
 			
+			$Draggable.position = draggable_base + vec
+
+			update_rope(vec)
+			
 			bird.position = draggable_base + vec + offset
 			bird.rotation = atan2(vec.y, vec.x) - PI
 			
@@ -69,6 +89,8 @@ func _process(delta: float) -> void:
 		rope.points[1] = draggable_base
 		
 		$Trajectory.points = []
+		
+		update_rope(Vector2.ZERO)
 		
 		if taking_input:
 			taking_input = false
