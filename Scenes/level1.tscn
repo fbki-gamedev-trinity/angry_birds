@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://cb4qj4a1o0ph4"]
+[gd_scene load_steps=18 format=4 uid="uid://cb4qj4a1o0ph4"]
 
 [ext_resource type="Script" path="res://Scenes/level_1.gd" id="1_73ben"]
 [ext_resource type="Texture2D" uid="uid://cw4fdxbmya5g1" path="res://Src/ground.jpg" id="1_j4qq8"]
@@ -27,6 +27,9 @@ physics_layer_0/collision_layer = 2
 physics_layer_0/collision_mask = 13
 sources/0 = SubResource("TileSetAtlasSource_c26o5")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xjxu1"]
+size = Vector2(1311, 561)
+
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_73ben")
 
@@ -44,6 +47,12 @@ script = ExtResource("1_v25ph")
 tile_map_data = PackedByteArray("AAACAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAFAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAHAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAJAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_m52cs")
 metadata/_edit_lock_ = true
+
+[node name="PlayableArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayableArea"]
+position = Vector2(403.5, -255.5)
+shape = SubResource("RectangleShape2D_xjxu1")
 
 [node name="Block" parent="." instance=ExtResource("2_3k2pl")]
 position = Vector2(555, -124)
@@ -134,3 +143,5 @@ offset_bottom = 648.0
 visible = false
 offset_right = 1152.0
 offset_bottom = 648.0
+
+[connection signal="body_exited" from="PlayableArea" to="." method="_on_playable_area_body_exited"]
