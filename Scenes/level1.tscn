@@ -55,28 +55,28 @@ position = Vector2(403.5, -255.5)
 shape = SubResource("RectangleShape2D_xjxu1")
 
 [node name="Block" parent="." instance=ExtResource("2_3k2pl")]
-position = Vector2(555, -124)
+position = Vector2(540, -102)
 
 [node name="Pig" parent="." instance=ExtResource("3_jm48a")]
 position = Vector2(464, -34)
 
 [node name="Pig2" parent="." instance=ExtResource("3_jm48a")]
-position = Vector2(489, -295)
+position = Vector2(464, -240)
 
 [node name="Block2" parent="." instance=ExtResource("2_3k2pl")]
-position = Vector2(497, -210)
+position = Vector2(532, -241)
 
 [node name="Block3" parent="." instance=ExtResource("2_3k2pl")]
-position = Vector2(375, -39)
+position = Vector2(389, -34)
 
 [node name="Block4" parent="." instance=ExtResource("2_3k2pl")]
-position = Vector2(556, -40)
+position = Vector2(540, -34)
 
 [node name="Block6" parent="." instance=ExtResource("2_3k2pl")]
-position = Vector2(407, -206)
+position = Vector2(391, -102)
 
 [node name="Block5" parent="." instance=ExtResource("2_3k2pl")]
-position = Vector2(377, -123)
+position = Vector2(396, -241)
 
 [node name="BirbFactory" type="Node2D" parent="."]
 script = ExtResource("5_k4vgw")
@@ -86,21 +86,22 @@ position = Vector2(-65, 0)
 script = ExtResource("7_1ys5i")
 
 [node name="Block7" parent="." instance=ExtResource("2_3k2pl")]
-position = Vector2(586, -210)
+position = Vector2(561, -171)
 
 [node name="Block8" parent="." instance=ExtResource("2_3k2pl")]
-position = Vector2(580, -298)
+position = Vector2(498, -172)
 
 [node name="Block9" parent="." instance=ExtResource("2_3k2pl")]
-position = Vector2(321, -208)
+position = Vector2(374, -172)
 
 [node name="Block10" parent="." instance=ExtResource("2_3k2pl")]
-position = Vector2(394, -297)
+position = Vector2(436, -171)
 
 [node name="CPUParticles2D" parent="." instance=ExtResource("8_t0rj1")]
 metadata/_edit_lock_ = true
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+visible = false
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 position = Vector2(-333, -842)
