@@ -1,31 +1,25 @@
 [gd_scene load_steps=9 format=3 uid="uid://cgofr2yml3lpt"]
 
 [ext_resource type="Script" path="res://Scenes/pig.gd" id="1_ch6ti"]
-[ext_resource type="Texture2D" uid="uid://rmquuyjfovf3" path="res://Src/pigs.webp" id="2_vxe1d"]
+[ext_resource type="Texture2D" uid="uid://dunw31hdi2e4a" path="res://Src/pig.png" id="2_ny23q"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_p5xqp"]
-radius = 28.0
+[sub_resource type="AtlasTexture" id="AtlasTexture_co8mc"]
+atlas = ExtResource("2_ny23q")
+region = Rect2(13, 182, 133, 137)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_388ps"]
-radius = 28.0
+[sub_resource type="AtlasTexture" id="AtlasTexture_01le3"]
+atlas = ExtResource("2_ny23q")
+region = Rect2(0, 0, 160, 140)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5ls56"]
-atlas = ExtResource("2_vxe1d")
-region = Rect2(270, 158, 70, 69)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4vamx"]
-atlas = ExtResource("2_vxe1d")
-region = Rect2(2, 612, 71, 68)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6jih7"]
-atlas = ExtResource("2_vxe1d")
-region = Rect2(557, 158, 70, 69)
+[sub_resource type="AtlasTexture" id="AtlasTexture_nm7gk"]
+atlas = ExtResource("2_ny23q")
+region = Rect2(13, 182, 133, 137)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_iha83"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_5ls56")
+"texture": SubResource("AtlasTexture_co8mc")
 }],
 "loop": true,
 "name": &"damaged",
@@ -33,7 +27,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4vamx")
+"texture": SubResource("AtlasTexture_01le3")
 }],
 "loop": true,
 "name": &"default",
@@ -41,12 +35,18 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_6jih7")
+"texture": SubResource("AtlasTexture_nm7gk")
 }],
 "loop": true,
 "name": &"heavily_damaged",
 "speed": 5.0
 }]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p5xqp"]
+radius = 29.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_388ps"]
+radius = 29.0
 
 [node name="Pig" type="RigidBody2D"]
 collision_layer = 8
@@ -55,21 +55,23 @@ contact_monitor = true
 max_contacts_reported = 2
 script = ExtResource("1_ch6ti")
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.513513, 0.513514)
+sprite_frames = SubResource("SpriteFrames_iha83")
+autoplay = "default"
+
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 8
 collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-1, 3)
+position = Vector2(-4, 4)
+scale = Vector2(1, 0.875)
 shape = SubResource("CircleShape2D_p5xqp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 5)
-scale = Vector2(1.1995, 1)
+position = Vector2(-4, 4)
+scale = Vector2(1, 0.875)
 shape = SubResource("CircleShape2D_388ps")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_iha83")
-autoplay = "default"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

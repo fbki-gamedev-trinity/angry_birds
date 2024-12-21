@@ -1,16 +1,16 @@
 [gd_scene load_steps=5 format=3 uid="uid://bj3lhx2diua15"]
 
-[ext_resource type="Texture2D" uid="uid://b70ann18ion0l" path="res://Src/birds.png" id="1_yf42f"]
+[ext_resource type="Texture2D" uid="uid://d32pa7fi3qusj" path="res://Src/birb.png" id="1_w0xn4"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_edft1"]
-atlas = ExtResource("1_yf42f")
-region = Rect2(10, 16, 45, 44)
+[sub_resource type="AtlasTexture" id="AtlasTexture_orvj0"]
+atlas = ExtResource("1_w0xn4")
+region = Rect2(0, 0, 160, 160)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_bjvv0"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_edft1")
+"texture": SubResource("AtlasTexture_orvj0")
 }],
 "loop": true,
 "name": &"default",
@@ -24,6 +24,8 @@ radius = 18.0
 collision_mask = 14
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-3, -1)
+scale = Vector2(0.3875, 0.3875)
 sprite_frames = SubResource("SpriteFrames_bjvv0")
 autoplay = "default"
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://cb4qj4a1o0ph4"]
+[gd_scene load_steps=19 format=4 uid="uid://cb4qj4a1o0ph4"]
 
 [ext_resource type="Script" path="res://Scenes/level_1.gd" id="1_73ben"]
 [ext_resource type="Texture2D" uid="uid://cw4fdxbmya5g1" path="res://Src/ground.jpg" id="1_j4qq8"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://bfpdf8i3vc4ug" path="res://Src/parallax backgound pack/_05_hill1.png" id="11_n7h20"]
 [ext_resource type="PackedScene" uid="uid://vgor2kenp54n" path="res://Scenes/pause_menu.tscn" id="12_3im1o"]
 [ext_resource type="PackedScene" uid="uid://cyem7f8tr43kc" path="res://Scenes/game_over.tscn" id="14_c43t5"]
+[ext_resource type="PackedScene" uid="uid://cvd40wqo0lwye" path="res://Scenes/block_wide.tscn" id="15_gn4xy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c26o5"]
 texture = ExtResource("1_j4qq8")
@@ -55,28 +56,28 @@ position = Vector2(403.5, -255.5)
 shape = SubResource("RectangleShape2D_xjxu1")
 
 [node name="Block" parent="." instance=ExtResource("2_3k2pl")]
-position = Vector2(555, -124)
+position = Vector2(540, -102)
 
 [node name="Pig" parent="." instance=ExtResource("3_jm48a")]
 position = Vector2(464, -34)
 
 [node name="Pig2" parent="." instance=ExtResource("3_jm48a")]
-position = Vector2(489, -295)
+position = Vector2(470, -238)
 
 [node name="Block2" parent="." instance=ExtResource("2_3k2pl")]
-position = Vector2(497, -210)
+position = Vector2(538, -241)
 
 [node name="Block3" parent="." instance=ExtResource("2_3k2pl")]
-position = Vector2(375, -39)
+position = Vector2(389, -34)
 
 [node name="Block4" parent="." instance=ExtResource("2_3k2pl")]
-position = Vector2(556, -40)
+position = Vector2(540, -34)
 
 [node name="Block6" parent="." instance=ExtResource("2_3k2pl")]
-position = Vector2(407, -206)
+position = Vector2(391, -102)
 
 [node name="Block5" parent="." instance=ExtResource("2_3k2pl")]
-position = Vector2(377, -123)
+position = Vector2(396, -241)
 
 [node name="BirbFactory" type="Node2D" parent="."]
 script = ExtResource("5_k4vgw")
@@ -84,18 +85,6 @@ script = ExtResource("5_k4vgw")
 [node name="Sling" parent="." instance=ExtResource("6_sbtp5")]
 position = Vector2(-65, 0)
 script = ExtResource("7_1ys5i")
-
-[node name="Block7" parent="." instance=ExtResource("2_3k2pl")]
-position = Vector2(586, -210)
-
-[node name="Block8" parent="." instance=ExtResource("2_3k2pl")]
-position = Vector2(580, -298)
-
-[node name="Block9" parent="." instance=ExtResource("2_3k2pl")]
-position = Vector2(321, -208)
-
-[node name="Block10" parent="." instance=ExtResource("2_3k2pl")]
-position = Vector2(394, -297)
 
 [node name="CPUParticles2D" parent="." instance=ExtResource("8_t0rj1")]
 metadata/_edit_lock_ = true
@@ -143,5 +132,11 @@ offset_bottom = 648.0
 visible = false
 offset_right = 1152.0
 offset_bottom = 648.0
+
+[node name="Block11" parent="." instance=ExtResource("15_gn4xy")]
+position = Vector2(416, -172)
+
+[node name="Block7" parent="." instance=ExtResource("15_gn4xy")]
+position = Vector2(518, -172)
 
 [connection signal="body_exited" from="PlayableArea" to="." method="_on_playable_area_body_exited"]

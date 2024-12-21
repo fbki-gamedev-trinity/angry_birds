@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://dp2mwx6fjoied"]
+[gd_scene load_steps=4 format=3 uid="uid://dp2mwx6fjoied"]
 
 [ext_resource type="PackedScene" uid="uid://bj3lhx2diua15" path="res://Scenes/bird.tscn" id="1_a7imr"]
+[ext_resource type="Texture2D" uid="uid://benc0mep4fqrc" path="res://Src/sling.png" id="2_hijr1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hl575"]
 size = Vector2(20, 179)
@@ -12,6 +13,7 @@ position = Vector2(0, -79.5)
 shape = SubResource("RectangleShape2D_hl575")
 
 [node name="Polygon2D" type="Polygon2D" parent="CollisionShape2D"]
+visible = false
 z_index = -2
 polygon = PackedVector2Array(-10, -89.5, -23, -124.5, 1, -90.5, 19, -134.5, 10, -89.5, 10, 89.5, -10, 89.5)
 
@@ -30,17 +32,22 @@ position = Vector2(-60, -9)
 position = Vector2(-113, -8)
 
 [node name="RopeFront" type="Line2D" parent="."]
-points = PackedVector2Array(0, -199, -23, -203)
+points = PackedVector2Array(0, -199, -47, -225)
 default_color = Color(0.792157, 0.407843, 0, 1)
 begin_cap_mode = 2
 end_cap_mode = 2
 
 [node name="RopeBack" type="Line2D" parent="."]
 z_index = -1
-points = PackedVector2Array(0, -199, 16, -211)
+points = PackedVector2Array(0, -199, 28, -239)
 default_color = Color(0.792157, 0.407843, 0, 1)
 begin_cap_mode = 2
 end_cap_mode = 2
 
 [node name="Draggable" type="Node2D" parent="."]
 position = Vector2(0, -199)
+
+[node name="Sling" type="Sprite2D" parent="."]
+position = Vector2(6, -106)
+scale = Vector2(0.636719, 0.636719)
+texture = ExtResource("2_hijr1")
